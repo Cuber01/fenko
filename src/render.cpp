@@ -1,8 +1,11 @@
 #include <SDL.h>
 
+#include <stdint.h>
+
 #include "types.hpp"
 #include "render.hpp"
 #include "canvas.hpp"
+#include "data.hpp"
 
 void CRenderHandler::init()
 {
@@ -61,9 +64,11 @@ void CRenderHandler::draw()
     for (uint16_t x = 0; x < ROWS; x++) {
         for (uint16_t y = 0; y < COLS; y++) {
 
-            value = grid[x][y];
+            uint8_t colorId = grid[x][y];
 
-            if( value.r != 0 && value.g != 0 && value.b != 0 )
+            value = colors[colorId];
+
+            if( not (value.r == 0 && value.g == 0 && value.b == 0)  )
             {
 
                 pixels[4 * (y * surface -> w + x) + 2] = value.r;   //red

@@ -1,4 +1,3 @@
 #include "canvas.hpp"
-#include "types.hpp"
 
-Color grid[ROWS][COLS];
+uint8_t grid[ROWS][COLS];

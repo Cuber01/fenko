@@ -43,6 +43,11 @@ int main()
     while(running)
     {
         main_loop();
+        grid[10][10] = 2;
+        grid[11][10] = 3;
+        grid[12][10] = 4;
+        grid[13][10] = 5;
+        grid[14][10] = 6;
     }
 
     quit();
