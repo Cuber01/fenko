@@ -1,0 +1,7 @@
+Compile:
+
+```
+mkdir out/
+cmake .
+make
+```
