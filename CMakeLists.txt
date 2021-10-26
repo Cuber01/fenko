@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 project(fenko-8)
 
 # list source files
-set(SOURCES src/main.cpp src/render.cpp src/canvas.cpp src/input.cpp src/data.cpp)
+set(SOURCES src/main.cpp src/render.cpp src/canvas.cpp src/input.cpp src/data.cpp src/graphics/drawing_api.cpp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out)
 set(CMAKE_CXX_FLAGS_DEBUG "-g")

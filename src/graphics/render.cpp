@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 #include "types.hpp"
-#include "render.hpp"
+#include "graphics/render.hpp"
 #include "canvas.hpp"
 #include "data.hpp"
 
