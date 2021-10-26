@@ -43,6 +43,7 @@ int main()
     while(running)
     {
         main_loop();
+        draw.rectfill(10, 10, 10, 10, 8);
     }
 
     quit();
