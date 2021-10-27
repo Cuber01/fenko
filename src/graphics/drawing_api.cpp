@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <memory.h>
 #include <iostream>
+#include <tgmath.h>
 
 #include "graphics/drawing_api.hpp"
 #include "canvas.hpp"
@@ -102,24 +103,93 @@ void CDraw::rectfill(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
 
 void CDraw::line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
 {
-   int16_t m_new = 2 * (y2 - y1);
-   int16_t slope_error_new = m_new - (x2 - x1);
-   
-   for (uint16_t x = x1, y = y1; x <= x2; x++)
-   {
-      pset(x, y, c);
- 
-      // Add slope to increment angle formed
-      slope_error_new += m_new;
- 
-      // Slope error reached limit, time to
-      // increment y and update slope error.
-      if (slope_error_new >= 0)
-      {
-         y++;
-         slope_error_new  -= 2 * (x2 - x1);
-      }
-   }
+    uint16_t x, y, xe, ye, i;
+
+    int16_t dx = x2 - x1;
+    int16_t dy = y2 - y1;
+
+    uint16_t dx1 = fabs(dx);
+    uint16_t dy1 = fabs(dy);
+
+    int16_t px = 2 * dy1 - dx1;
+    int16_t py = 2 * dx1 - dy1;
+    
+    if (dy1 <= dx1)
+    {
+        if (dx >= 0)
+        {
+            x = x1;
+            y = y1;
+            xe = x2;
+        }
+        else
+        {
+            x = x2;
+            y = y2;
+            xe = x1;
+        }
+        pset(x, y, c);
+        for (i = 0; x < xe; i++)
+        {
+            x = x + 1;
+            if (px < 0)
+            {
+                px = px + 2 * dy1;
+            }
+            else
+            {
+                if ((dx < 0 && dy < 0) || (dx > 0 && dy > 0))
+                {
+                    y = y + 1;
+                }
+                else
+                {
+                    y = y - 1;
+                }
+                px = px + 2 * (dy1 - dx1);
+            }
+
+            pset(x, y, c);
+        }
+    }
+    else
+    {
+        if (dy >= 0)
+        {
+            x = x1;
+            y = y1;
+            ye = y2;
+        }
+        else
+        {
+            x = x2;
+            y = y2;
+            ye = y1;
+        }
+        pset(x, y, c);
+        for (i = 0; y < ye; i++)
+        {
+            y = y + 1;
+            if (py <= 0)
+            {
+                py = py + 2 * dx1;
+            }
+            else
+            {
+                if ((dx < 0 && dy < 0) || (dx > 0 && dy > 0))
+                {
+                    x = x + 1;
+                }
+                else
+                {
+                    x = x - 1;
+                }
+                py = py + 2 * (dx1 - dy1);
+            }
+
+            pset(x, y, c);
+        }
+    }
 }
 
 void CDraw::cls()

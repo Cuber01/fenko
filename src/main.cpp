@@ -43,7 +43,7 @@ int main()
     while(running)
     {
         main_loop();
-        draw.line(30, 30, 50, 40, 8);
+        draw.line(0, 0, 128, 127, 8);
     }
 
     quit();

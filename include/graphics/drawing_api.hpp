@@ -18,7 +18,7 @@ class CDraw {
         // Draw a filled rectangle from x y with w width and h height using c color
         void rectfill(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
 
-        void line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c);
+        void line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,  uint8_t c);
 
         // Clears the screen
         void cls();
