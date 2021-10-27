@@ -1,6 +1,7 @@
 #ifndef __RENDER_HPP
 #define __RENDER_HPP
 
+#include <SDL.h>
 
 class CRenderHandler {
     public:
