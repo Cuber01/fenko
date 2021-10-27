@@ -4,6 +4,9 @@
 #include <stdint.h>
 
 class CDraw {
+    private:
+
+
     public:
 
         // Sets pixel at xy coordinates to c color
@@ -12,11 +15,11 @@ class CDraw {
         // Returns pixel color at xy coordinates
         uint8_t pget(uint16_t x, uint16_t y);
 
-        // Draw an empty rectangle from x1 y1 (up left corner) to x2 y2 (down right corner) using c color
-        void rect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c);
+        // Draw an empty rectangle from x y (up left corner) to x2 y2 (down right corner) using c color
+        void rect(uint16_t x, uint16_t y, uint16_t x2, uint16_t y2, uint8_t c);
 
-        // Draw a filled rectangle from x1 y1 (up left corner) to x2 y2 (down right corner) using c color
-        void rectfill(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c);
+        // Draw a filled rectangle from x y with w width and h height using c color
+        void rectfill(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
 
         // Clears the screen
         void cls();

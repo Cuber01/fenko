@@ -14,82 +14,22 @@ uint8_t CDraw::pget(uint16_t x, uint16_t y)
     return grid[x][y];
 }
 
+
 // void CDraw::rect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
 // {
 
 // }
-
-/*
-x1 > x2, y1 > y2
-x1 < x2, y1 < y2
-
-x1 < x2, y1 < y2
-*/
-
-void CDraw::rectfill(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
+#include <stdio.h>
+void CDraw::rectfill(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
 {
-    if (x1 < x2 && y1 < y2) 
+    for(uint16_t i = 0; i < w; i++)
     {
-        
-        for(uint16_t i = x1; i < x2; i++)
+        for(uint16_t j = 0; j < h; j++)
         {
-            for(uint16_t j = y1; j < y2; j++)
-            {
-                pset(i, j, c);
-            }
-        } 
-
-    } else if (x1 > x2 && y1 > y2)
-    {
-
-        for(uint16_t i = x2; i < x1; i++)
-        {
-            for(uint16_t j = y2; j < y1; j++)
-            {
-                pset(i, j, c);
-            }
-        } 
-
-    } else if (x1 > x2 && y1 < y2)
-    {
-
-        for(uint16_t i = x2; i < x1; i++)
-        {
-            for(uint16_t j = y1; j < y2; j++)
-            {
-                pset(i, j, c);
-            }
-        } 
-
-    } else if (x1 < x2 && y1 > y2)
-    {
-
-        for(uint16_t i = x1; i < x2; i++)
-        {
-            for(uint16_t j = y2; j < y1; j++)
-            {
-                pset(i, j, c);
-            }
-        } 
-        
-    } else if (x1 > x2 && y1 == y2)
-    {
-        // TODO line
-    } else if (x1 < x2 && y1 == y2)
-    {
-        // TODO line
-    } else if (x1 == x2 && y1 < y2)
-    {
-        // TODO line
-    } else if (x1 == x2 && y1 > y2)
-    {
-        // TODO line
-    } else if ( x1 == x2 && y1 == y2 )
-    {
-
-        pset(x1, x2, c);
-
-    } 
+            grid[x+i][y+j] = c;
+        }
+    }
+    
 }
 
 
