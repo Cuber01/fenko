@@ -43,7 +43,7 @@ int main()
     while(running)
     {
         main_loop();
-        draw.circ(80, 80, 10, 8);
+        draw.circfill(80, 80, 10, 8);
         draw.line(70, 60, 20, 70, 8);
     }
 
