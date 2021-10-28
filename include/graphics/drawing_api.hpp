@@ -27,8 +27,8 @@ class CDraw {
         // Draw a filled circle on x y with r radius in c color
         void circfill(uint16_t x, uint16_t y, uint16_t r,  uint8_t c);
 
-        // Clears the screen
-        void cls();
+        // Clears the screen using c color
+        void cls(uint8_t c);
 
 };
 

@@ -266,7 +266,7 @@ void CDraw::line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
     }
 }
 
-void CDraw::cls()
+void CDraw::cls(uint8_t c)
 {
-    memset( grid, 0, sizeof(grid) );
+    memset( grid, c, sizeof(grid) );
 }
