@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <SDL_mixer.h>
 
 #include "graphics/drawing_api.hpp"
 #include "types.hpp"
@@ -16,6 +17,12 @@ CDraw          draw;
 void init()
 {
     Renderer.init();
+
+    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+    {
+        printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+        exit(1);
+    }
 }
 
 void quit()

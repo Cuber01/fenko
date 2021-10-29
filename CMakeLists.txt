@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.5.1)
 
 # set project name
 project(fenko-8)
@@ -36,5 +36,9 @@ endif()
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
+# find and include SDL2 Mixer
+include(FindPkgConfig)
+pkg_check_modules(SDL2_Mixer REQUIRED IMPORTED_TARGET SDL2_mixer)
+
 # link sdl2
-target_link_libraries(fenko-8.run ${SDL2_LIBRARIES})
+target_link_libraries(fenko-8.run ${SDL2_LIBRARIES} PkgConfig::SDL2_Mixer)
