@@ -11,15 +11,15 @@ class CInputBackend {
         SDL_Event event;
         intVector2D cursorPos;
 
-        std::map<int, bool> keyboard;
-
         void handleInput(SDL_Event* event);
 
     public:
-        uint16_t lastKeyboardKeyPressed;
-        uint8_t  lastMouseKeyPressed;
+        std::map<int, bool> keyboard;
+        std::map<int, bool> oldKeyboard;
+
 
         bool mouseIsPressed = false;
+        uint8_t  lastMouseKeyPressed;
 
         void updateInput();
         

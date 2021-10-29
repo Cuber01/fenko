@@ -16,10 +16,14 @@ class CInput {
 
     public:
 
-        // check if btn button is currently pressed
+        void updateInput();
+
+        // check if button is currently pressed
+        // use SDL_Keycodes https://wiki.libsdl.org/SDL_Keycode
         bool isButtonPressed(SDL_Keycode btn);
 
-        // check if btn button is pressed but wasn't in the last frame
+        // check if button is pressed but wasn't in the last frame
+        // use SDL_Keycodes https://wiki.libsdl.org/SDL_Keycode
         bool wasButtonRecentlyPressed(SDL_Keycode btn);
         
 };
