@@ -2,13 +2,16 @@
 #define __INPUT_HPP
 
 #include <SDL.h>
+#include <map>
 #include "types.hpp"
 
-class CInputHandler {
+class CInputBackend {
     
     private:
         SDL_Event event;
         intVector2D cursorPos;
+
+        std::map<int, bool> keyboard;
 
         void handleInput(SDL_Event* event);
 
@@ -20,7 +23,6 @@ class CInputHandler {
 
         void updateInput();
         
-
 };
 
 

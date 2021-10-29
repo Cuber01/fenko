@@ -1,8 +1,8 @@
 #include <SDL.h>
-#include "input.hpp"
+#include "input/input.hpp"
 #include "main.hpp"
 
-void CInputHandler::updateInput()
+void CInputBackend::updateInput()
 {
     while (SDL_PollEvent(&event))
     {
@@ -11,7 +11,7 @@ void CInputHandler::updateInput()
 }
 
 
-void CInputHandler::handleInput(SDL_Event* event)
+void CInputBackend::handleInput(SDL_Event* event)
 {
 
     // mouse
@@ -38,7 +38,11 @@ void CInputHandler::handleInput(SDL_Event* event)
     {
 
     case SDL_KEYDOWN:
-        lastKeyboardKeyPressed = event->key.keysym.sym;
+        keyboard[event->key.keysym.sym] = false;
+        break;
+
+    case SDL_KEYUP:
+        keyboard[event->key.keysym.sym] = true;
         break;
 
     case SDL_QUIT:

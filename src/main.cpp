@@ -4,13 +4,13 @@
 #include "types.hpp"
 #include "graphics/render.hpp"
 #include "canvas.hpp"
-#include "input.hpp"
+#include "input/input.hpp"
 
 bool running = true;
 
 // objects
 CRenderHandler Renderer;
-CInputHandler  InputHandler;
+CInputBackend  InputHandler;
 CDraw          draw;
 
 void init()
@@ -30,6 +30,12 @@ void main_loop()
 
     SDL_Delay(10);
 
+    draw.rect(10, 10, 20, 20, 8);
+
+    // draw.rectfill(40, 40, 50, 50, 8);
+
+    draw.line(80, 80, 73, 46, 8);
+
     InputHandler.updateInput();
 
     Renderer.draw(); 
@@ -43,7 +49,6 @@ int main()
     while(running)
     {
         main_loop();
-        draw.cls(8);
     }
 
     quit();

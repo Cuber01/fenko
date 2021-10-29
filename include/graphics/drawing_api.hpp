@@ -3,7 +3,9 @@
 
 #include <stdint.h>
 
+
 class CDraw {
+
     public:
 
         // Sets pixel at xy coordinates to c color
