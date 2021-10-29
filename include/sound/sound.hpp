@@ -6,11 +6,23 @@
 
 class CSound 
 {
+    private:
+        Mix_Chunk* loadSound(const char* soundPath);
+
+        Mix_Music* loadMusic(const char* musicPath);
 
     public:
-        void playSound(Mix_Chunk* soundEffect);
+        void playSound(const char*soundPath);
 
-        void loopMusic(Mix_Music* musicTrack);
+        void playMusic(char* musicPath);
+
+        void loopMusic(char* musicPath);
+
+        void pauseMusic();
+
+        void resumeMusic();
+
+        void haltMusic();
         
 };
 

@@ -12,6 +12,7 @@ set(SOURCES
     src/input/input_api.cpp 
     src/data.cpp 
     src/graphics/drawing_api.cpp
+    src/sound/sound.cpp
     )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out)
