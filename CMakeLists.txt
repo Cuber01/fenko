@@ -4,7 +4,15 @@ cmake_minimum_required(VERSION 3.10)
 project(fenko-8)
 
 # list source files
-set(SOURCES src/main.cpp src/graphics/render.cpp src/canvas.cpp src/input.cpp src/data.cpp src/graphics/drawing_api.cpp)
+set(SOURCES 
+    src/main.cpp 
+    src/graphics/render.cpp 
+    src/canvas.cpp 
+    src/input/input.cpp 
+    src/input/input_api.cpp 
+    src/data.cpp 
+    src/graphics/drawing_api.cpp
+    )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out)
 set(CMAKE_CXX_STANDARD 14)
@@ -19,9 +27,9 @@ add_executable(fenko-8.run ${SOURCES})
 include_directories(fenko-8.run PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 
 if(MSVC)
-  target_compile_options(fenko-8.run PRIVATE /W4 /WX)
+    target_compile_options(fenko-8.run PRIVATE /W4 /WX)
 else()
-  target_compile_options(fenko-8.run PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(fenko-8.run PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
 # find and include sdl2 files

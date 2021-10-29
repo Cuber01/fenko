@@ -1,4 +1,6 @@
 #include <SDL.h>
+#include <memory>
+
 #include "input/input.hpp"
 #include "main.hpp"
 
@@ -14,6 +16,7 @@ void CInputBackend::updateInput()
 void CInputBackend::handleInput(SDL_Event* event)
 {
 
+
     // mouse
     switch (event->type)
     {
@@ -23,12 +26,11 @@ void CInputBackend::handleInput(SDL_Event* event)
             break;
 
         case SDL_MOUSEBUTTONDOWN:
-            lastMouseKeyPressed = event->button.button;
-            mouseIsPressed = true;
+            mouseKeys[event->button.button] = true;
             break;
 
         case SDL_MOUSEBUTTONUP:
-            mouseIsPressed = false;
+            mouseKeys[event->button.button] = false;
             break;
 
     }
@@ -38,11 +40,11 @@ void CInputBackend::handleInput(SDL_Event* event)
     {
 
     case SDL_KEYDOWN:
-        keyboard[event->key.keysym.sym] = false;
+        keyboard[event->key.keysym.sym] = true;
         break;
 
     case SDL_KEYUP:
-        keyboard[event->key.keysym.sym] = true;
+        keyboard[event->key.keysym.sym] = false;
         break;
 
     case SDL_QUIT:

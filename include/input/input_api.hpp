@@ -6,8 +6,8 @@
 #include <SDL.h>
 #include "input.hpp"
 
-#define btn isButtonPressed
-#define btnp wasButtonRecentlyPressed
+#define isButtonPressed btn
+#define isMouseButtonPressed mbtn
 
 class CInput {
     
@@ -19,12 +19,12 @@ class CInput {
         void updateInput();
 
         // check if button is currently pressed
-        // use SDL_Keycodes https://wiki.libsdl.org/SDL_Keycode
-        bool isButtonPressed(SDL_Keycode btn);
+        // use SDL_Keycode values https://wiki.libsdl.org/SDL_Keycode
+        bool isButtonPressed(SDL_Keycode button);
 
-        // check if button is pressed but wasn't in the last frame
-        // use SDL_Keycodes https://wiki.libsdl.org/SDL_Keycode
-        bool wasButtonRecentlyPressed(SDL_Keycode btn);
+        // check if mouse button is currently pressed
+        // use either SDL_BUTTON_RIGHT, SDL_BUTTON_LEFT or SDL_BUTTON_MIDDLE 
+        bool isMouseButtonPressed(uint8_t button);
         
 };
 

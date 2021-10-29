@@ -16,8 +16,12 @@ bool CInput::isButtonPressed(SDL_Keycode button)
     return false;
 } 
 
-
-bool CInput::wasButtonRecentlyPressed(SDL_Keycode button)
+bool CInput::isMouseButtonPressed(uint8_t button) 
 {
-    return true;
+    if (inputBackend.mouseKeys[button])
+    {
+        return true;
+    }
+
+    return false;
 }

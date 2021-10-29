@@ -23,6 +23,7 @@ void quit()
     SDL_DestroyRenderer( Renderer.renderer );
 	SDL_DestroyWindow( Renderer.window );
 	SDL_Quit();
+    exit(0);
 }
 
 void main_loop()
@@ -30,10 +31,6 @@ void main_loop()
 
     SDL_Delay(10);
 
-    if(input.isButtonPressed(SDL_SCANCODE_6))
-    {
-        quit();
-    }
 
     input.updateInput();
 

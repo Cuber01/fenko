@@ -15,11 +15,8 @@ class CInputBackend {
 
     public:
         std::map<int, bool> keyboard;
-        std::map<int, bool> oldKeyboard;
 
-
-        bool mouseIsPressed = false;
-        uint8_t  lastMouseKeyPressed;
+        bool mouseKeys[4];
 
         void updateInput();
         
