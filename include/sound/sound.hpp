@@ -4,19 +4,26 @@
 #include <SDL.h>
 #include <SDL_mixer.h>
 
+#define sfx         playSound
+#define music       playMusic
+#define loop_music  loopMusic
+#define pause_music pauseMusic
+#define stop_music  haltMusic
+
 class CSound 
 {
-    private:
+    public:
+        CSound();
+
         Mix_Chunk* loadSound(const char* soundPath);
 
         Mix_Music* loadMusic(const char* musicPath);
 
-    public:
-        void playSound(const char*soundPath);
+        void playSound(Mix_Chunk* sound);
 
-        void playMusic(char* musicPath);
+        void playMusic(Mix_Music* musicTrack);
 
-        void loopMusic(char* musicPath);
+        void loopMusic(Mix_Music* musicTrack);
 
         void pauseMusic();
 

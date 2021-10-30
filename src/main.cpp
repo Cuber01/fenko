@@ -21,12 +21,6 @@ CSound         sound;
 void init()
 {
     Renderer.init();
-
-    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
-    {
-        printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
-        exit(1);
-    }
 }
 
 void quit()
@@ -38,15 +32,16 @@ void quit()
     exit(0);
 }
 
+Mix_Chunk* a = sound.loadSound("FrogJump1.wav");
+Mix_Music* b  = sound.loadMusic("bp_MUS_MantisBATTLE.ogg");
+
 void main_loop()
 {
-
-    SDL_Delay(10);
-
-
     input.updateInput();
 
     Renderer.draw(); 
+
+    sound.playSound(a);
 
 }
 
@@ -54,12 +49,17 @@ int main()
 {
     init();
 
-    sound.playSound("FrogJump1.wav");
+
+    sound.playMusic(b);
     
+
     while(running)
     {
         main_loop();
     }
+
+    Mix_FreeChunk(a);
+    Mix_FreeMusic(b);
 
     quit();
 

@@ -3,6 +3,15 @@
 #include <SDL_mixer.h>
 #include "sound/sound.hpp"
 
+CSound::CSound()
+{
+    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+    {
+        printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+        exit(1);
+    }
+}
+
 Mix_Music* CSound::loadMusic(const char* musicPath)
 {
     Mix_Music* rv = Mix_LoadMUS( musicPath );
@@ -27,28 +36,21 @@ Mix_Chunk* CSound::loadSound(const char* soundPath)
     return rv;
 }
 
-void CSound::playSound(const char* soundPath)
+void CSound::playSound(Mix_Chunk* sound)
 {
-    Mix_Chunk* sound = loadSound(soundPath);
-
     Mix_PlayChannel(-1, sound, 0);
 }
 
-void CSound::playMusic(char* musicPath)
+void CSound::playMusic(Mix_Music* musicTrack)
 {
-    Mix_Music* musicTrack = loadMusic(musicPath);
-
     Mix_PlayMusic( musicTrack, 1 );
 }
 
 
-void CSound::loopMusic(char* musicPath)
+void CSound::loopMusic(Mix_Music* musicTrack)
 {
-    Mix_Music* musicTrack = loadMusic(musicPath);
-
     Mix_PlayMusic( musicTrack, -1 );
 }
-
 
 void CSound::pauseMusic()
 {

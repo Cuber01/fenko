@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+#define cls clear
 
 class CDraw {
 
@@ -30,7 +31,7 @@ class CDraw {
         void circfill(uint16_t x, uint16_t y, uint16_t r,  uint8_t c);
 
         // Clears the screen using c color
-        void cls(uint8_t c);
+        void clear(uint8_t c);
 
 };
 
