@@ -32,8 +32,6 @@ void quit()
     exit(0);
 }
 
-Mix_Chunk* a = sound.loadSound("FrogJump1.wav");
-Mix_Music* b  = sound.loadMusic("bp_MUS_MantisBATTLE.ogg");
 
 void main_loop()
 {
@@ -41,25 +39,17 @@ void main_loop()
 
     Renderer.draw(); 
 
-    sound.playSound(a);
-
 }
 
 int main()
 {
     init();
 
-
-    sound.playMusic(b);
-    
-
     while(running)
     {
         main_loop();
     }
 
-    Mix_FreeChunk(a);
-    Mix_FreeMusic(b);
 
     quit();
 

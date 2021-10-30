@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 # set project name
-project(fenko-8)
+project(fenko)
 
 # list source files
 set(SOURCES 
@@ -22,15 +22,15 @@ set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 # add executable
-add_executable(fenko-8.run ${SOURCES})
+add_executable(fenko.run ${SOURCES})
 
 # set include dirs
-include_directories(fenko-8.run PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
+include_directories(fenko.run PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 
 if(MSVC)
-    target_compile_options(fenko-8.run PRIVATE /W4 /WX)
+    target_compile_options(fenko.run PRIVATE /W4 /WX)
 else()
-    target_compile_options(fenko-8.run PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(fenko.run PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
 # find and include sdl2 files
@@ -42,4 +42,4 @@ include(FindPkgConfig)
 pkg_check_modules(SDL2_Mixer REQUIRED IMPORTED_TARGET SDL2_mixer)
 
 # link sdl2
-target_link_libraries(fenko-8.run ${SDL2_LIBRARIES} PkgConfig::SDL2_Mixer)
+target_link_libraries(fenko.run ${SDL2_LIBRARIES} PkgConfig::SDL2_Mixer)
