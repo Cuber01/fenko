@@ -20,7 +20,7 @@ CSound         sound;
 
 void init()
 {
-    Renderer.init();
+
 }
 
 void quit()

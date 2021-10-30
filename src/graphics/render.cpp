@@ -7,9 +7,8 @@
 #include "canvas.hpp"
 #include "data.hpp"
 
-void CRenderHandler::init()
+CRenderHandler::CRenderHandler()
 {
-
     // initalize video
     if( SDL_Init(SDL_INIT_VIDEO) != 0)
     {
@@ -49,6 +48,7 @@ void CRenderHandler::init()
     SDL_RenderSetScale(renderer, SCALE, SCALE);
 
 }
+
 
 
 void CRenderHandler::draw()
