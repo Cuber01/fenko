@@ -36,14 +36,14 @@ Mix_Chunk* CSound::loadSound(const char* soundPath)
     return rv;
 }
 
-void CSound::playSound(Mix_Chunk* sound)
+void CSound::playSound(Mix_Chunk* sound, uint8_t loops)
 {
-    Mix_PlayChannel(-1, sound, 0);
+    Mix_PlayChannel(-1, sound, loops);
 }
 
-void CSound::playMusic(Mix_Music* musicTrack)
+void CSound::playMusic(Mix_Music* musicTrack, uint8_t loops)
 {
-    Mix_PlayMusic( musicTrack, 1 );
+    Mix_PlayMusic( musicTrack, loops );
 }
 
 void CSound::freeSound(Mix_Chunk* sound)

@@ -27,11 +27,13 @@ class CSound
         // This should be done when you no longer need it
         void freeMusic(Mix_Music* musicTrack);
 
-        // Play a Mix_Chunk sound once
-        void playSound(Mix_Chunk* sound);
+        // Play a Mix_Chunk 
+        // Change loops parameter to specify how many times it should loop (default 0)
+        void playSound(Mix_Chunk* sound, uint8_t loops=0);
 
         // Play a music track once
-        void playMusic(Mix_Music* musicTrack);
+        // Change loops parameter to specify how many times it should loop (default 0)
+        void playMusic(Mix_Music* musicTrack, uint8_t loops=0);
 
         // Play a music track indefinitely
         // Next action: pauseMusic() or haltMusic()
