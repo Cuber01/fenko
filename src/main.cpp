@@ -39,15 +39,9 @@ void main_loop()
 
 }
 
-Mix_Chunk* a = sound.loadSound("AppleCrunch.wav");
-Mix_Music* b = sound.loadMusic("bp_MUS_CivilBATTLE.ogg");
-
 
 int main()
 {
-
-        sound.playSound(a);
-        sound.playMusic(b);
 
     while(running)
     {

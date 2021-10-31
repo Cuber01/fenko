@@ -12,6 +12,7 @@ set(SOURCES
     src/input/input_api.cpp 
     src/data.cpp 
     src/graphics/drawing_api.cpp
+    src/graphics/sprite.cpp
     src/sound/sound.cpp
     )
 
@@ -35,11 +36,14 @@ endif()
 
 # find and include sdl2 files
 find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS})
+include_directories(${SDL2_INCLUDE_DIRS} )
+
+#${SDL2IMAGE_INCLUDE_DIRS}
 
 # find and include SDL2 Mixer
 include(FindPkgConfig)
 pkg_check_modules(SDL2_Mixer REQUIRED IMPORTED_TARGET SDL2_mixer)
+pkg_check_modules(SDL2IMAGE REQUIRED SDL2_image>=2.0.0)
 
 # link sdl2
-target_link_libraries(fenko.run ${SDL2_LIBRARIES} PkgConfig::SDL2_Mixer)
+target_link_libraries(fenko.run ${SDL2_LIBRARIES} -lSDL2_image PkgConfig::SDL2_Mixer )
