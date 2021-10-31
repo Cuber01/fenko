@@ -3,6 +3,8 @@
 
 #include "types.hpp"
 
-extern Color colors[16];
+#define COLOR_AMOUNT 16
+
+extern Color palette[COLOR_AMOUNT];
 
 #endif

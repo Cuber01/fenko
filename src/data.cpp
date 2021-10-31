@@ -1,6 +1,6 @@
 #include "data.hpp"
 
-Color colors[16]
+Color palette[COLOR_AMOUNT]
 {
     { 0,   0,   0   },          //0 	    #000000      black
     { 29,  43,  83  },          //1 	    #1D2B53 	 dark-blue

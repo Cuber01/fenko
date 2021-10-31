@@ -66,7 +66,7 @@ void CRenderHandler::draw()
 
             uint8_t colorId = grid[x][y];
 
-            value = colors[colorId];
+            value = palette[colorId];
 
             if( not (value.r == 0 && value.g == 0 && value.b == 0)  )
             {

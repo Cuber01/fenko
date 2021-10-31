@@ -36,9 +36,7 @@ endif()
 
 # find and include sdl2 files
 find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS} )
-
-#${SDL2IMAGE_INCLUDE_DIRS}
+include_directories(${SDL2_INCLUDE_DIRS})
 
 # find and include SDL2 Mixer
 include(FindPkgConfig)

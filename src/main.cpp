@@ -5,6 +5,7 @@
 #include "input/input_api.hpp"
 #include "sound/sound.hpp"
 #include "graphics/render.hpp"
+#include "graphics/sprite.hpp"
 
 #include "types.hpp"
 #include "canvas.hpp"
@@ -17,7 +18,7 @@ CRenderHandler renderer;
 CInput         input;
 CDraw          draw;
 CSound         sound;
-
+CSprite        sprite;
 
 void quit()
 {
@@ -36,12 +37,13 @@ void main_loop()
     input.updateInput();
 
     renderer.draw(); 
-
 }
 
 
 int main()
 {
+
+    sprite.loadSpritesheet("spritesheet.png");
 
     while(running)
     {
