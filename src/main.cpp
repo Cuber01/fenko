@@ -13,22 +13,20 @@
 bool running = true;
 
 // objects
-CRenderHandler Renderer;
+CRenderHandler renderer;
 CInput         input;
 CDraw          draw;
 CSound         sound;
 
-void init()
-{
-
-}
 
 void quit()
 {
-    SDL_DestroyRenderer( Renderer.renderer );
-	SDL_DestroyWindow( Renderer.window );
+    SDL_DestroyRenderer( renderer.renderer );
+	SDL_DestroyWindow( renderer.window );
+
     Mix_Quit();
 	SDL_Quit();
+
     exit(0);
 }
 
@@ -37,19 +35,17 @@ void main_loop()
 {
     input.updateInput();
 
-    Renderer.draw(); 
+    renderer.draw(); 
 
 }
 
 int main()
 {
-    init();
 
     while(running)
     {
         main_loop();
     }
-
 
     quit();
 

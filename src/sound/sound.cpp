@@ -46,6 +46,16 @@ void CSound::playMusic(Mix_Music* musicTrack)
     Mix_PlayMusic( musicTrack, 1 );
 }
 
+void CSound::freeSound(Mix_Chunk* sound)
+{
+    Mix_FreeChunk(sound);
+}
+
+void CSound::freeMusic(Mix_Music* musicTrack)
+{
+    Mix_FreeMusic(musicTrack);
+}
+
 
 void CSound::loopMusic(Mix_Music* musicTrack)
 {
