@@ -3,6 +3,7 @@
 
 #include "graphics/sprite.hpp"
 #include "types.hpp"
+#include "canvas.hpp"
 #include "data.hpp"
 
 
@@ -66,8 +67,16 @@ const char* CSprite::getFileExtension(const char* path)
     return dot + 1;
 }
 
-void drawImage(uint16_t spriteX, uint16_t spriteY, uint16_t screenX, uint16_t screenY,
-               uint16_t w, uint16_t h, bool flipX, bool flipY)
+void CSprite::drawImage(uint16_t spriteX, uint16_t spriteY, uint16_t screenX, uint16_t screenY,
+                        uint16_t w, uint16_t h, bool flipX, bool flipY)
 {
+
+    for(uint16_t x = 0; x < w; x++)
+    {
+        for(uint16_t y = 0; y < h; y++)
+        {
+            grid[screenX+x][screenY+y] = spriteSheetData[spriteX+x][spriteY+y]; 
+        }
+    }
 
 }

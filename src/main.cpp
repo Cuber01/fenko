@@ -36,6 +36,8 @@ void main_loop()
 {
     input.updateInput();
 
+    sprite.drawImage(0, 0, 10, 10);
+
     renderer.draw(); 
 }
 
