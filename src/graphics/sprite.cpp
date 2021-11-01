@@ -71,12 +71,49 @@ void CSprite::drawImage(uint16_t spriteX, uint16_t spriteY, uint16_t screenX, ui
                         uint16_t w, uint16_t h, bool flipX, bool flipY)
 {
 
-    for(uint16_t x = 0; x < w; x++)
+    if(flipX && flipY)
     {
-        for(uint16_t y = 0; y < h; y++)
+
+        for(uint16_t x = 0; x < w; x++)
         {
-            grid[screenX+x][screenY+y] = spriteSheetData[spriteX+x][spriteY+y]; 
+            for(uint16_t y = 0; y < h; y++)
+            {
+                grid[screenX - x + w][screenY - y + h] = spriteSheetData[spriteX+x][spriteY+y]; 
+            }
         }
+
+    } else if (flipX)
+    {
+
+        for(uint16_t x = 0; x < w; x++)
+        {
+            for(uint16_t y = 0; y < h; y++)
+            {
+                grid[screenX - x + w][screenY+y] = spriteSheetData[spriteX+x][spriteY+y]; 
+            }
+        }
+
+    } else if (flipY)
+    {
+
+        for(uint16_t x = 0; x < w; x++)
+        {
+            for(uint16_t y = 0; y < h; y++)
+            {
+                grid[screenX+x][screenY - y + h] = spriteSheetData[spriteX+x][spriteY+y]; 
+            }
+        }
+
+    } else 
+    {
+        for(uint16_t x = 0; x < w; x++)
+        {
+            for(uint16_t y = 0; y < h; y++)
+            {
+                grid[screenX+x][screenY+y] = spriteSheetData[spriteX+x][spriteY+y]; 
+            }
+        }
+
     }
 
 }
