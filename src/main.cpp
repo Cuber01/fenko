@@ -31,12 +31,13 @@ void quit()
     exit(0);
 }
 
-
 void main_loop()
 {
     input.updateInput();
 
-    sprite.drawImage(8, 0, 10, 10, 8, 8, false, false);
+    SDL_Delay(80);
+
+
 
     renderer.draw(); 
 }

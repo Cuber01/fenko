@@ -31,7 +31,7 @@ void CSprite::loadSpritesheet(const char* spriteSheetPath)
 
     if(strcmp(getFileExtension(spriteSheetPath), png))
     {
-        puts(getFileExtension(spriteSheetPath));
+        puts("Spritesheet lacks .png extension");
         return;
     }
 
@@ -67,7 +67,7 @@ const char* CSprite::getFileExtension(const char* path)
     return dot + 1;
 }
 
-void CSprite::drawImage(uint16_t spriteX, uint16_t spriteY, uint16_t screenX, uint16_t screenY,
+void CSprite::spr(uint16_t spriteX, uint16_t spriteY, uint16_t screenX, uint16_t screenY,
                         uint16_t w, uint16_t h, bool flipX, bool flipY)
 {
 

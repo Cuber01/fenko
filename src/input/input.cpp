@@ -1,5 +1,4 @@
 #include <SDL.h>
-#include <memory>
 
 #include "input/input.hpp"
 #include "main.hpp"
