@@ -16,22 +16,22 @@ set(SOURCES
     src/sound/sound.cpp
     )
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/out)
 set(CMAKE_CXX_STANDARD 14)
 
-set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_BUILD_TYPE RelWithDebInfo)
+message(STATUS "Configuration: ${CMAKE_BUILD_TYPE}")
 
 # add executable
-add_executable(fenko.run ${SOURCES})
+add_library(fenko ${SOURCES})
 
 # set include dirs
-include_directories(fenko.run PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
+include_directories(fenko PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 
-if(MSVC)
-    target_compile_options(fenko.run PRIVATE /W4 /WX)
+if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
+    target_compile_options(fenko PRIVATE -Wall -Wextra -Wpedantic)
+    set(CMAKE_BUILD_TYPE RelWithDebInfo)
 else()
-    target_compile_options(fenko.run PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(fenko PRIVATE -O3 -Wall -Wextra -Wpedantic)
 endif()
 
 # find and include sdl2 files
@@ -44,4 +44,4 @@ pkg_check_modules(SDL2_Mixer REQUIRED IMPORTED_TARGET SDL2_mixer)
 pkg_check_modules(SDL2IMAGE REQUIRED SDL2_image>=2.0.0)
 
 # link sdl2
-target_link_libraries(fenko.run ${SDL2_LIBRARIES} -lSDL2_image PkgConfig::SDL2_Mixer )
+target_link_libraries(fenko ${SDL2_LIBRARIES} -lSDL2_image PkgConfig::SDL2_Mixer )
