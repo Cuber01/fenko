@@ -36,6 +36,7 @@ void main_loop()
     input.updateInput();
 
     SDL_Delay(80);
+    
 
 
 
