@@ -21,7 +21,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 message(STATUS "Configuration: ${CMAKE_BUILD_TYPE}")
 
-# add executable
+# add library
 add_library(fenko ${SOURCES})
 
 # set include dirs

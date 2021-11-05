@@ -21,7 +21,7 @@ CRenderHandler renderer;
 CInput         input;
 CDraw          draw;
 CSound         sound;
-//CSprite        sprite;
+CSprite        sprite;
 
 // circle variables
 int circle_x = 10;
@@ -94,8 +94,10 @@ void main_loop()
 int main()
 {
 
-  // sprite.loadSpritesheet("spritesheet.png");
-
+   // sprite.loadSpritesheet("spritesheet.png");
+    
+    // play music infinitely
+    sound.loopMusic(music);
 
     while(running)
     {
